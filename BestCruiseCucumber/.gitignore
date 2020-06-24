@@ -129,5 +129,6 @@ $RECYCLE.BIN/
 /logs
 /target/
 /reports
+.idea
 
-
+/BestCruiseCucumber.iml
