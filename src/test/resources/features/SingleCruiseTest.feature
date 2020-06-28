@@ -8,7 +8,6 @@ Scenario Outline: In order to find cheap cruise
 	Then user compares "<cruisename>" price with "<price_limit>"
 	 
 Examples:
-	| cruisename                  | cruiseadress                         | price_limit |
-	| cruiseRome2411Rome0512Haifa | https://www.cruclub.ru/offer/107217/ | 30000       |
-	| cruiseRome1612Rome2712Haifa | https://www.cruclub.ru/offer/104612/ | 30000       |
-	| cruiseRome0701Rome1801Haifa | https://www.cruclub.ru/offer/104609/ | 30000       |
+	| cruisename                       | cruiseadress                          | price_limit |
+	| cruiseRome2411Rome0512Haifa     | https://www.cruclub.ru/offer/107217/ | 30000       |
+	| cruiseSavonna2205Petersburg0806 | https://www.cruclub.ru/offer/116100/ | 50000       |
