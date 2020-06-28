@@ -11,15 +11,13 @@ public class SeleniumDriver {
 
 	private static SeleniumDriver seleniumDriver;
 	private static WebDriver driver;
-	//private static WebDriverWait waitDriver;
-	public final static int TIMEOUT = 30;
-	public final static int PAGE_LOAD_TIMEOUT = 50;
+	public final static int TIMEOUT = 3;
+	public final static int PAGE_LOAD_TIMEOUT = 5;
 	
 	private SeleniumDriver() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		//waitDriver = new WebDriverWait(driver, TIMEOUT);
 		driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 	}
