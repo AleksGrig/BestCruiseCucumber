@@ -11,8 +11,8 @@ public class SeleniumDriver {
 
 	private static SeleniumDriver seleniumDriver;
 	private static WebDriver driver;
-	public final static int TIMEOUT = 3;
-	public final static int PAGE_LOAD_TIMEOUT = 5;
+	public final static int TIMEOUT = 5;
+	public final static int PAGE_LOAD_TIMEOUT = 10;
 	
 	private SeleniumDriver() {
 		WebDriverManager.chromedriver().setup();
