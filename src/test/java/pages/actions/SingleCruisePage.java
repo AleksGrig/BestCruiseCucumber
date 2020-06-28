@@ -1,9 +1,11 @@
 package pages.actions;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.testng.Assert;
 
+import org.testng.SkipException;
 import pages.locators.SingleCruisePageLocators;
 import utilities.SeleniumDriver;
 
@@ -16,7 +18,11 @@ public class SingleCruisePage {
 	}
 	
 	public void isCheaperThan(String priceLimit) {
-		double price = Double.parseDouble(singleCruiseLocators.cruisePrice.getText().split(" ")[0]);
-		if(price <= Double.parseDouble(priceLimit)) 	Assert.fail("Cruise found");		
+		try {
+			double price = Double.parseDouble(singleCruiseLocators.cruisePrice.getText().split(" ")[0]);
+			if(price <= Double.parseDouble(priceLimit)) 	Assert.fail("Cruise found");
+		} catch (NoSuchElementException e) {
+			throw new SkipException("No such cruise found");
+		}
 	}
 }
