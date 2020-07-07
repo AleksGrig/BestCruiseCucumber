@@ -10,48 +10,48 @@ import pages.actions.HomePage;
 import pages.actions.SearchPage;
 
 public class ParameterizedSearchTestSteps {
-	
-	private final HomePage home = new HomePage();
-	private final SearchPage search  = new SearchPage();
 
-	@Then("^user chooses destination \"([^\"]*)\"$")
-	public void user_chooses_destination(String region) {
-		home.chooseRegion(Region.valueOf(region));
-	}
+    private final HomePage home = new HomePage();
+    private final SearchPage search = new SearchPage();
 
-	@And("^chooses destination \"([^\"]*)\"$")
-	public void chooses_destination(String country) {
-		home.chooseCountry(Country.valueOf(country));
-	}
+    @Then("^user chooses destination \"([^\"]*)\"$")
+    public void user_chooses_destination(String region) {
+        home.chooseRegion(Region.valueOf(region));
+    }
 
-	@And("^chooses departure \"([^\"]*)\"$")
-	public void chooses_departure(String port) {
-		home.chooseDeparturePort(Port.valueOf(port));
-	}
+    @And("^chooses destination \"([^\"]*)\"$")
+    public void chooses_destination(String country) {
+        home.chooseCountry(Country.valueOf(country));
+    }
 
-	@And("^chooses minimum cruise \"([^\"]*)\"$")
-	public void chooses_minimum_cruise(String minCruiseLength) {
-		home.chooseMinLength(Integer.parseInt(minCruiseLength));
-	}
+    @And("^chooses departure \"([^\"]*)\"$")
+    public void chooses_departure(String port) {
+        home.chooseDeparturePort(Port.valueOf(port));
+    }
 
-	@And("^chooses before \"([^\"]*)\"$")
-	public void chooses_before(String beforeDate) {
-		home.chooseBeforeDate(beforeDate);
-	}
+    @And("^chooses minimum cruise \"([^\"]*)\"$")
+    public void chooses_minimum_cruise(String minCruiseLength) {
+        home.chooseMinLength(Integer.parseInt(minCruiseLength));
+    }
 
-	@And("^clicks submit button$")
-	public void clicks_submit_button() {
-		home.submitCruiseOptions();
-	}
+    @And("^chooses before \"([^\"]*)\"$")
+    public void chooses_before(String beforeDate) {
+        home.chooseBeforeDate(beforeDate);
+    }
 
-	@Then("^sorts cruises$")
-	public void sorts_cruises() {
-		search.sort(By.Price);
-	}
+    @And("^clicks submit button$")
+    public void clicks_submit_button() {
+        home.submitCruiseOptions();
+    }
 
-	@And("^loads first cruise$")
-	public void loads_first_cruise() {
-		search.loadFirst();
-	}
+    @Then("^sorts cruises$")
+    public void sorts_cruises() {
+        search.sort(By.Price);
+    }
+
+    @And("^loads first cruise$")
+    public void loads_first_cruise() {
+        search.loadFirst();
+    }
 
 }
