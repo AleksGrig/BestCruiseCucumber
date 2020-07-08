@@ -9,6 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SeleniumDriver {
 
+	private static ThreadLocal<WebDriver> threadLocal = new ThreadLocal<>();
 	private static SeleniumDriver seleniumDriver;
 	private static WebDriver driver;
 	public final static int TIMEOUT = 15;
