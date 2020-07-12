@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="Suite" parallel="tests">
+  <test thread-count="5" name="ParameterizedSearch">
     <classes>
-      <class name="runner.RunCuke"/>
+      <class name="runner.ParameterizedSearchRunner"/>
     </classes>
-  </test> 
+  </test>
+
+  <test thread-count="5" name="SingleCruisedSearch">
+    <classes>
+      <class name="runner.SingleCruiseRunner"/>
+    </classes>
+  </test>
 </suite> 

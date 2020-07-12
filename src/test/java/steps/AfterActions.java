@@ -6,19 +6,21 @@ import org.openqa.selenium.WebDriver;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import utilities.ExtentManager;
+import utilities.ExtentTestManager;
 import utilities.SeleniumDriver;
 
 public class AfterActions {
 
 	@After
 	public static void tearDown(Scenario scenario) {
-		WebDriver driver = SeleniumDriver.getDriver();
-		System.out.println(scenario.isFailed());
 		if (scenario.isFailed()) {
-			byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-			scenario.embed(screenshotBytes, "image/png");
-
+			ExtentTestManager.logFail("Scenario Failed");
+			ExtentTestManager.addScreenShotsOnFailure();
+		} else {
+			ExtentTestManager.scenarioPass();
 		}
+		ExtentManager.getReporter().flush();
 		SeleniumDriver.tearDown();
 	}
 }
